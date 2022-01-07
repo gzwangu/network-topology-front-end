@@ -2,9 +2,7 @@
   <v-container>
     <!-- 标题 -->
     <v-row>
-      <p class="title font-weight-bold mb-3">
-        设备登录
-      </p>
+      <p class="title font-weight-bold mb-3">设备登录</p>
     </v-row>
 
     <!-- 配置卡片 -->
@@ -14,52 +12,30 @@
           <v-card :elevation="hover ? 12 : 4">
             <v-card-title>Router0</v-card-title>
             <v-card-text>
+              <v-text-field v-model="r0.ip" label="IP地址" required outlined></v-text-field>
+              <v-text-field v-model="r0.mask" label="子网掩码" required outlined></v-text-field>
               <v-text-field
-                  v-model="r0.ip"
-                  label="IP地址"
-                  required
-                  outlined
-              ></v-text-field>
-              <v-text-field
-                  v-model="r0.mask"
-                  label="子网掩码"
-                  required
-                  outlined
-              ></v-text-field>
-              <v-text-field
-                  v-show="!unify.enable"
-                  v-model="r0.pwd"
-                  label="Telnet密码"
-                  required
-                  outlined
-                  :append-icon="r0.show ? 'mdi-eye' : 'mdi-eye-off'"
-                  :type="r0.show ? 'text' : 'password'"
-                  @click:append="r0.show = !r0.show"
+                v-show="!unify.enable"
+                v-model="r0.pwd"
+                label="Telnet密码"
+                required
+                outlined
+                :append-icon="r0.show ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="r0.show ? 'text' : 'password'"
+                @click:append="r0.show = !r0.show"
               ></v-text-field>
               <v-btn
-                  elevation="4"
-                  color="primary"
-                  :disabled="r0.state"
-                  :loading="r0.loader"
-                  @click="login('r0', r0.ip, r0.mask, unify.enable ? unify.pwd : r0.pwd)"
-              >
-                登录
-              </v-btn>
+                elevation="4"
+                color="primary"
+                :disabled="r0.state"
+                :loading="r0.loader"
+                @click="login('r0', r0.ip, r0.mask, unify.enable ? unify.pwd : r0.pwd)"
+              >登录</v-btn>
             </v-card-text>
 
             <!-- 遮罩层 -->
-            <v-overlay
-                absolute
-                :z-index=0
-                :value="r0.state"
-            >
-              <v-btn
-                  elevation="4"
-                  color="red lighten"
-                  @click="logout('r0')"
-              >
-                退出登录
-              </v-btn>
+            <v-overlay absolute :z-index="0" :value="r0.state">
+              <v-btn elevation="4" color="red lighten" @click="logout('r0')">退出登录</v-btn>
             </v-overlay>
           </v-card>
         </v-hover>
@@ -72,52 +48,30 @@
           <v-card :elevation="hover ? 12 : 4">
             <v-card-title>Router1</v-card-title>
             <v-card-text>
+              <v-text-field v-model="r1.ip" label="IP地址" required outlined></v-text-field>
+              <v-text-field v-model="r1.mask" label="子网掩码" required outlined></v-text-field>
               <v-text-field
-                  v-model="r1.ip"
-                  label="IP地址"
-                  required
-                  outlined
-              ></v-text-field>
-              <v-text-field
-                  v-model="r1.mask"
-                  label="子网掩码"
-                  required
-                  outlined
-              ></v-text-field>
-              <v-text-field
-                  v-show="!unify.enable"
-                  v-model="r1.pwd"
-                  label="Telnet密码"
-                  required
-                  outlined
-                  :append-icon="r1.show ? 'mdi-eye' : 'mdi-eye-off'"
-                  :type="r1.show ? 'text' : 'password'"
-                  @click:append="r1.show = !r1.show"
+                v-show="!unify.enable"
+                v-model="r1.pwd"
+                label="Telnet密码"
+                required
+                outlined
+                :append-icon="r1.show ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="r1.show ? 'text' : 'password'"
+                @click:append="r1.show = !r1.show"
               ></v-text-field>
               <v-btn
-                  elevation="4"
-                  color="primary"
-                  :disabled="r1.state"
-                  :loading="r1.loader"
-                  @click="login('r1', r1.ip, r1.mask, unify.enable ? unify.pwd : r1.pwd)"
-              >
-                登录
-              </v-btn>
+                elevation="4"
+                color="primary"
+                :disabled="r1.state"
+                :loading="r1.loader"
+                @click="login('r1', r1.ip, r1.mask, unify.enable ? unify.pwd : r1.pwd)"
+              >登录</v-btn>
             </v-card-text>
 
             <!-- 遮罩层 -->
-            <v-overlay
-                absolute
-                :z-index=0
-                :value="r1.state"
-            >
-              <v-btn
-                  elevation="4"
-                  color="red lighten"
-                  @click="logout('r1')"
-              >
-                退出登录
-              </v-btn>
+            <v-overlay absolute :z-index="0" :value="r1.state">
+              <v-btn elevation="4" color="red lighten" @click="logout('r1')">退出登录</v-btn>
             </v-overlay>
           </v-card>
         </v-hover>
@@ -130,52 +84,30 @@
           <v-card :elevation="hover ? 12 : 4">
             <v-card-title>Router2</v-card-title>
             <v-card-text>
+              <v-text-field v-model="r2.ip" label="IP地址" required outlined></v-text-field>
+              <v-text-field v-model="r2.mask" label="子网掩码" required outlined></v-text-field>
               <v-text-field
-                  v-model="r2.ip"
-                  label="IP地址"
-                  required
-                  outlined
-              ></v-text-field>
-              <v-text-field
-                  v-model="r2.mask"
-                  label="子网掩码"
-                  required
-                  outlined
-              ></v-text-field>
-              <v-text-field
-                  v-show="!unify.enable"
-                  v-model="r2.pwd"
-                  label="Telnet密码"
-                  required
-                  outlined
-                  :append-icon="r2.show ? 'mdi-eye' : 'mdi-eye-off'"
-                  :type="r2.show ? 'text' : 'password'"
-                  @click:append="r2.show = !r2.show"
+                v-show="!unify.enable"
+                v-model="r2.pwd"
+                label="Telnet密码"
+                required
+                outlined
+                :append-icon="r2.show ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="r2.show ? 'text' : 'password'"
+                @click:append="r2.show = !r2.show"
               ></v-text-field>
               <v-btn
-                  elevation="4"
-                  color="primary"
-                  :disabled="r2.state"
-                  :loading="r2.loader"
-                  @click="login('r2', r2.ip, r2.mask, unify.enable ? unify.pwd : r2.pwd)"
-              >
-                登录
-              </v-btn>
+                elevation="4"
+                color="primary"
+                :disabled="r2.state"
+                :loading="r2.loader"
+                @click="login('r2', r2.ip, r2.mask, unify.enable ? unify.pwd : r2.pwd)"
+              >登录</v-btn>
             </v-card-text>
 
             <!-- 遮罩层 -->
-            <v-overlay
-                absolute
-                :z-index=0
-                :value="r2.state"
-            >
-              <v-btn
-                  elevation="4"
-                  color="red lighten"
-                  @click="logout('r2')"
-              >
-                退出登录
-              </v-btn>
+            <v-overlay absolute :z-index="0" :value="r2.state">
+              <v-btn elevation="4" color="red lighten" @click="logout('r2')">退出登录</v-btn>
             </v-overlay>
           </v-card>
         </v-hover>
@@ -187,37 +119,31 @@
     <!-- 统一操作选项 -->
     <v-row class="text-center">
       <v-col sm="3">
-        <v-switch
-            v-model="unify.enable"
-            :label="`使用统一密码`"
-        ></v-switch>
+        <v-switch v-model="unify.enable" :label="`使用统一密码`"></v-switch>
       </v-col>
       <v-col sm="7">
         <v-text-field
-            v-show="unify.enable"
-            v-model="unify.pwd"
-            label="统一Telnet密码"
-            required
-            outlined
-            :append-icon="unify.show ? 'mdi-eye' : 'mdi-eye-off'"
-            :type="unify.show ? 'text' : 'password'"
-            @click:append="unify.show = !unify.show"
+          v-show="unify.enable"
+          v-model="unify.pwd"
+          label="统一Telnet密码"
+          required
+          outlined
+          :append-icon="unify.show ? 'mdi-eye' : 'mdi-eye-off'"
+          :type="unify.show ? 'text' : 'password'"
+          @click:append="unify.show = !unify.show"
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="2">
         <v-btn
-            large
-            elevation="4"
-            color="primary"
-            :disabled="r0.state && r1.state && r2.state"
-            :loading="r0.loader && r1.loader && r2.loader"
-            @click="login_all"
-        >
-          一键登录
-        </v-btn>
+          large
+          elevation="4"
+          color="primary"
+          :disabled="r0.state && r1.state && r2.state"
+          :loading="r0.loader && r1.loader && r2.loader"
+          @click="login_all"
+        >一键登录</v-btn>
       </v-col>
     </v-row>
-
   </v-container>
 </template>
 
@@ -229,7 +155,7 @@ export default {
   data() {
     return {
       r0: {
-        ip: '172.16.0.2', // IP地址
+        ip: '172.16.0.1', // IP地址
         mask: '255.255.0.0', // 子网掩码
         pwd: '', // telnet密码
         show: false, // 密码可见性
@@ -237,7 +163,7 @@ export default {
         loader: false // 加载器
       },
       r1: {
-        ip: '172.16.0.3', // IP地址
+        ip: '172.16.0.2', // IP地址
         mask: '255.255.0.0', // 子网掩码
         pwd: '', // telnet密码
         show: false, // 密码可见性
@@ -245,7 +171,7 @@ export default {
         loader: false // 加载器
       },
       r2: {
-        ip: '172.16.0.4', // IP地址
+        ip: '172.16.0.3', // IP地址
         mask: '255.255.0.0', // 子网掩码
         pwd: '', // telnet密码
         show: false, // 密码可见性
@@ -254,7 +180,7 @@ export default {
       },
       unify: {
         enable: true, // 使用统一密码
-        pwd: '', // 统一telnet密码
+        pwd: 'CISCO', // 统一telnet密码
         show: false // 密码可见性
       }
     }
@@ -265,7 +191,7 @@ export default {
       // 通过触发showSnackbar事件并传递消息参数，从而调用全局Snackbar
       this.$eventBus.$emit('showSnackbar', {
         id: new Date().getTime(), // id用于设置Snackbar在v-for循环中的key属性，避免排序混乱的问题
-        content: {icon, msg, color}
+        content: { icon, msg, color }
       })
     },
     // 设置加载器
@@ -353,8 +279,8 @@ export default {
     // 一键登录
     login_all() {
       axios.all([this.login("r0", this.r0.ip, this.r0.mask, this.unify.enable ? this.unify.pwd : this.r0.pwd),
-        this.login("r1", this.r1.ip, this.r1.mask, this.unify.enable ? this.unify.pwd : this.r1.pwd),
-        this.login("r2", this.r2.ip, this.r2.mask, this.unify.enable ? this.unify.pwd : this.r2.pwd)
+      this.login("r1", this.r1.ip, this.r1.mask, this.unify.enable ? this.unify.pwd : this.r1.pwd),
+      this.login("r2", this.r2.ip, this.r2.mask, this.unify.enable ? this.unify.pwd : this.r2.pwd)
       ]).then(axios.spread(function (res) {
         console.log(res);
       })).catch(err => {
